@@ -157,14 +157,14 @@
         <div class="navbar">
             <div class="logo">Portfolio.</div>
             <div class="buttons">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#services">Services</a>
-                <a href="#contact">Contact</a>
+                <a href="#home" onclick="openhome()">Home</a>
+                <a href="#about" onclick="openabout()">About</a>
+                <a href="#skills" onclick="openskills()">Skills</a>
+                <a href="#services" onclick="openservices()">Services</a>
+                <a href="#contact" onclick="alertfn()">Contact</a>
             </div>
             <div class="social-links">
-                <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://github.com" target="https://github.com/LILTIMOTHY64"><i class="fab fa-github"></i></a>
                 <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
                 <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -176,11 +176,150 @@
                 <h1>I'm Keerthivasan</h1>
                 <div class="title">UI/UX Designer</div>
                 <div class="location">From Chennai</div>
-                <a href="#contact" class="hire-button">Hire Me</a>
+                <a href="#contact" class="hire-button" onclick="alertfn()">Hire Me</a>
             </div>
             <img src="profile-image.jpg" alt="Profile Picture" class="profile-image">
         </div>
     </div>
+    <script>
+        function openhome() {
+            // Hide all sections first
+            hideAllSections();
+            // Show home content
+            document.querySelector('.content-wrapper').style.display = 'flex';
+        }
+
+        function openabout() {
+            // Hide all sections first
+            hideAllSections();
+            
+            // Create about section if it doesn't exist
+            let aboutSection = document.querySelector('#about');
+            if (!aboutSection) {
+                aboutSection = document.createElement('div');
+                aboutSection.id = 'about';
+                aboutSection.innerHTML = `
+                    <div class="content-wrapper">
+                        <div class="content">
+                            <h1>About Me</h1>
+                            <div class="title">UI/UX Designer</div>
+                            <div class="location">Based in Chennai</div>
+                            <p style="margin-top: 20px;">Hi, I'm Keerthivasan, a passionate UI/UX Designer with a keen eye for detail 
+                            and a love for creating intuitive user experiences. I help businesses bring their digital products to life.</p>
+                            
+                            <p>I specialize in creating user-centered designs that not only look beautiful but also provide 
+                            seamless interactions. My approach combines aesthetic appeal with functional design principles.</p>
+                            
+                            <div style="margin-top: 20px;">
+                                <div class="hello">Experience: 3+ years</div>
+                                <div class="hello">Education: Bachelor's in Design</div>
+                                <div class="hello">Location: Chennai, India</div>
+                            </div>
+                            
+                            <a href="#contact" class="hire-button">Contact Me</a>
+                        </div>
+                    </div>
+                `;
+                document.querySelector('.container').appendChild(aboutSection);
+            }
+            aboutSection.style.display = 'block';
+        }
+
+        function openskills() {
+            // Hide all sections first
+            hideAllSections();
+            
+            // Create skills section if it doesn't exist
+            let skillsSection = document.querySelector('#skills');
+            if (!skillsSection) {
+                skillsSection = document.createElement('div');
+                skillsSection.id = 'skills';
+                skillsSection.innerHTML = `
+                    <div class="content-wrapper">
+                        <div class="content">
+                            <h1>My Skills</h1>
+                            <div class="skills-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                                <div class="skill-card" style="padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1); border-radius: 5px;">
+                                    <h3>Frontend Development</h3>
+                                    <p>HTML5, CSS3, JavaScript, React.js</p>
+                                </div>
+                                <div class="skill-card" style="padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1); border-radius: 5px;">
+                                    <h3>Backend Development</h3>
+                                    <p>Node.js, Express.js, MongoDB</p>
+                                </div>
+                                <div class="skill-card" style="padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1); border-radius: 5px;">
+                                    <h3>Design Tools</h3>
+                                    <p>Figma, Adobe XD, Photoshop</p>
+                                </div>
+                                <div class="skill-card" style="padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1); border-radius: 5px;">
+                                    <h3>Other Skills</h3>
+                                    <p>Git, RESTful APIs, Responsive Design</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                document.querySelector('.container').appendChild(skillsSection);
+            }
+            skillsSection.style.display = 'block';
+        }
+
+        function openservices() {
+            // Hide all sections first
+            hideAllSections();
+            
+            // Create services section if it doesn't exist
+            let servicesSection = document.querySelector('#services');
+            if (!servicesSection) {
+                servicesSection = document.createElement('div');
+                servicesSection.id = 'services';
+                servicesSection.innerHTML = `
+                    <div class="content-wrapper">
+                        <div class="content">
+                            <h1>My Services</h1>
+                            <div class="services-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                                <div class="service-card" style="padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1); border-radius: 5px;">
+                                    <h3>UI Design</h3>
+                                    <p>Creating beautiful, intuitive interfaces that users love to interact with.</p>
+                                </div>
+                                <div class="service-card" style="padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1); border-radius: 5px;">
+                                    <h3>UX Design</h3>
+                                    <p>Designing seamless user experiences through research and testing.</p>
+                                </div>
+                                <div class="service-card" style="padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1); border-radius: 5px;">
+                                    <h3>Prototyping</h3>
+                                    <p>Building interactive prototypes to visualize the final product.</p>
+                                </div>
+                                <div class="service-card" style="padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1); border-radius: 5px;">
+                                    <h3>Design Systems</h3>
+                                    <p>Creating consistent and scalable design systems for products.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                document.querySelector('.container').appendChild(servicesSection);
+            }
+            servicesSection.style.display = 'block';
+        }
+
+        function alertfn() {
+            alert('Contact me at: myemail@example.com');
+        }
+
+        // Helper function to hide all sections
+        function hideAllSections() {
+            const mainContent = document.querySelector('.content-wrapper');
+            const aboutSection = document.querySelector('#about');
+            const skillsSection = document.querySelector('#skills');
+            const servicesSection = document.querySelector('#services');
+
+            if (mainContent) mainContent.style.display = 'none';
+            if (aboutSection) aboutSection.style.display = 'none';
+            if (skillsSection) skillsSection.style.display = 'none';
+            if (servicesSection) servicesSection.style.display = 'none';
+        }
+    </script>
 </body>
 
 </html>
